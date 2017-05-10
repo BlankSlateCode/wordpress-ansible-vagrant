@@ -2,3 +2,4 @@
 .vagrant
 provisioning/playbook.retry
 provisioning/roles/mysql/defaults/main.yml
+provisioning/roles/server/defaults/main.yml
