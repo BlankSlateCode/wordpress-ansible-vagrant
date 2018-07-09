@@ -25,7 +25,13 @@ This installs:
 
 ## Installation
 
-In the steps below you'll copy the example config file to `provisioning/roles/mysql/defaults/main.yml` and edit it
+```bash
+$ git clone https://github.com/BlankSlateCode/wordpress-ansible-vagrant.git
+$ cd wordpress-ansible-vagrant
+$ cp provisioning/roles/mysql/defaults/main-example.yml provisioning/roles/mysql/defaults/main.yml
+```
+
+Edit `provisioning/roles/mysql/defaults/main.yml` and set the values:
 
 ```yml
 wp_mysql_db: my_database
@@ -34,10 +40,6 @@ wp_mysql_password: my_password
 ```
 
 ```bash
-$ git clone https://github.com/BlankSlateCode/wordpress-ansible-vagrant.git
-$ cd wordpress-ansible-vagrant
-$ cp provisioning/roles/mysql/defaults/main-example.yml provisioning/roles/mysql/defaults/main.yml
-$ vim provisioning/roles/mysql/defaults/main.yml
 $ vagrant up --provider virtualbox
 ```
 
@@ -54,14 +56,15 @@ $ ansible-galaxy init mysql
 $ ansible-galaxy init wordpress
 ```
 
-I made a couple of modifications to the [Digital Ocean tutorial][1].
+I made a few modifications to the [Digital Ocean tutorial][1]:
 
 1. I include Vagrant in this as well, Vagrant and Ansible work very will together, but I believe that you can just use this code to run the playbook on its own
 2. Effectively I rely on `vagrant up` to 'provision' the server which runs the ansible playbook.
 3. If you modify the playbook after running vagrant up for the first time you have to run `vagrant provision` to force the re-run of the playbook
 4. I am just using this for localhost development - so there is no `hosts` file and the `playbook.yml` file uses `hosts: all` which defaults to just localhost. The [Digital Ocean tutorial][1] has instructions for using other hosts.
+5. I have upgraded it to Ubuntu 16.04.
 
-This will get updated to Ubuntu 16 at some point, but this ansible playbook is fairly OS agnostic I think - so it *should* run on most Linux OSes.  
+This ansible playbook is fairly OS agnostic I think - so it *should* run on most Linux OSes.
 
 This is very little beyond a simple LAMP setup. You can delete the wordpress role and remove it from `playbook.yml` then you have a LAMP system that will create you a MySQL database.
 
