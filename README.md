@@ -1,6 +1,8 @@
 # Vagrant Ansible WordPress setup
 
-This is a simple set of code that is just from the [Digital Ocean 'WordPress using Ansible' tutorial][1].
+This is a set of code that is from the [Digital Ocean 'WordPress using Ansible' tutorial][1].
+
+It has been upgraded to work on Ubuntu 16.04 rather than 14.04 as in the tutorial.
 
 Other ansible installs that I found when searching just had too much in them that I didn't want. This has the minimum to get WordPress working, then you can just fork it and customise it.
 
@@ -8,18 +10,18 @@ This is designed to run on localhost only, but you can modify it for specific se
 
 This installs:
 
-* Ubuntu 14.04 LTS
-* Apache (libapache2-mod-php5)
+* Ubuntu 16.04 LTS
+* Apache (libapache2-mod-php)
 * MySQL
-* PHP 5.5.9 (php5, php5-mysql, php5-mcrypt, php5-gd, libssh2-php)
+* PHP 7 (php, php-mysql, php-mcrypt, php-gd, libssh2-php)
 * Python-MySQL (for automated installation of MySQL DB)
 * WordPress (latest)
 
 ## Prerequisites (i.e. tested with)
 
-* VirtualBox v5.1.22 (this could be any of the VMs that Vagrant supports)
-* Vagrant v1.8.5
-* Ansible v2.3.0.0
+* VirtualBox v5.2.14 (this could be any of the VMs that Vagrant supports)
+* Vagrant v2.0.2
+* Ansible v2.6.0
 
 ## Installation
 

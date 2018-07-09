@@ -1,4 +1,4 @@
-.session.vim
+Session.vim
 .vagrant
 provisioning/playbook.retry
 provisioning/roles/mysql/defaults/main.yml
