@@ -19,9 +19,9 @@ This installs:
 
 ## Prerequisites (i.e. tested with)
 
+* Ansible v2.6.0
 * VirtualBox v5.2.14 (this could be any of the VMs that Vagrant supports)
 * Vagrant v2.0.2
-* Ansible v2.6.0
 
 ## Installation
 
@@ -45,9 +45,22 @@ $ vagrant up --provider virtualbox
 
 Once the vagrant is running you can go to <http://localhost:8080> - which should show a WordPress installation page.
 
+## No Vagrant
+
+This project comes from a tutorial that is purely Ansible based with no requirement for Vagrant. So the playbook is still perfectly runnable on it's own.
+
+So the installation is exactly as the Vagrant installation except for the final command:
+
+```bash
+$ cd provisioning
+$ ansible-playbook playbook.yml -i my-inventory.txt
+```
+
+This will run the playbook on `localhost`. You can change `my-inventory.txt` to be what ever server you want to run the Ansible playbook against.
+
 ## Notes
 
-The hope is that you can understand all the code that is here - at least by following the tutorial. There really isn't much and it could be all in one `playbook.yml` file. All the code bloat comes from (which creates all the subdirectories under `roles`):
+The hope is that you can understand all the code that is here - at least by following the tutorial. There really isn't much and it could be all in one `playbook.yml` file. All the code bloat comes from the following commands (which create all the subdirectories under `roles`):
 
 ```
 $ ansible-galaxy init server 
@@ -58,7 +71,7 @@ $ ansible-galaxy init wordpress
 
 I made a few modifications to the [Digital Ocean tutorial][1]:
 
-1. I include Vagrant in this as well, Vagrant and Ansible work very will together, but I believe that you can just use this code to run the playbook on its own
+1. I include Vagrant in this as well, Vagrant and Ansible work very will together, but I believe that you can just use this code to run the playbook on its own - see the section on 'No Vagrant' above.
 2. Effectively I rely on `vagrant up` to 'provision' the server which runs the ansible playbook.
 3. If you modify the playbook after running vagrant up for the first time you have to run `vagrant provision` to force the re-run of the playbook
 4. I am just using this for localhost development - so there is no `hosts` file and the `playbook.yml` file uses `hosts: all` which defaults to just localhost. The [Digital Ocean tutorial][1] has instructions for using other hosts.
