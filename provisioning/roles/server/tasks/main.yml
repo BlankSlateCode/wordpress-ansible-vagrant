@@ -19,7 +19,8 @@
   apt: name={{ item }} state=present
   become: true
   with_items:
-    - subversion
+    # subversion is only for installing WordPress via SVN
+    # - subversion
     - apache2
     - mysql-server
     - php-mcrypt
