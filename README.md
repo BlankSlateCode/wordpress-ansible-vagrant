@@ -29,6 +29,7 @@ This installs:
 $ git clone https://github.com/BlankSlateCode/wordpress-ansible-vagrant.git
 $ cd wordpress-ansible-vagrant
 $ cp provisioning/roles/mysql/defaults/main-example.yml provisioning/roles/mysql/defaults/main.yml
+$ cp provisioning/roles/server/defaults/main-example.yml provisioning/roles/server/defaults/main.yml
 ```
 
 Edit `provisioning/roles/mysql/defaults/main.yml` and set the values:
@@ -37,6 +38,12 @@ Edit `provisioning/roles/mysql/defaults/main.yml` and set the values:
 wp_mysql_db: my_database
 wp_mysql_user: my_user
 wp_mysql_password: my_password
+```
+
+Edit `provisioning/roles/mysql/server/main.yml` and set the values:
+
+```yml
+root_mysql_password: my_password
 ```
 
 ```bash

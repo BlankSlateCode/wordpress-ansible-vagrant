@@ -2,4 +2,6 @@ Session.vim
 .vagrant
 provisioning/playbook.retry
 provisioning/roles/mysql/defaults/main.yml
+provisioning/roles/mysql/defaults/main.tmp.yml
 provisioning/roles/server/defaults/main.yml
+provisioning/roles/server/defaults/main.tmp.yml
